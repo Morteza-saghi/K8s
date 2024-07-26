@@ -98,7 +98,6 @@ Taints and tolerations work together to ensure that pods are not scheduled onto 
 ---
 
 #### Node Affinity in Kubernetes
-Last Updated : 06 May, 2024
 Node affinity in Kubernetes refers to the ability to assign a Kubernetes pod to a specific node or group of nodes in a cluster based on specific criteria. A feature called node affinity is employed to guarantee that particular pods are located on particular nodes in a cluster. This facilitates better resource management and performance optimization of the application.
 
 ---

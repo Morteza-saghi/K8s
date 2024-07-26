@@ -12,24 +12,52 @@ Other applications expect some read-only input data to be present in files, like
 
 Ephemeral volumes are designed for these use cases. Because volumes follow the Pod's lifetime and get created and deleted along with the Pod, Pods can be stopped and restarted without being limited to where some persistent volume is available.
 
+---
+
+
 ### Persistent volumes
 
 A PersistentVolume (PV) is a piece of storage in the cluster that has been provisioned by an administrator or dynamically provisioned using Storage Classes. It is a resource in the cluster just like a node is a cluster resource. PVs are volume plugins like Volumes, but have a lifecycle independent of any individual Pod that uses the PV. This API object captures the details of the implementation of the storage, be that NFS, iSCSI, or a cloud-provider-specific storage system.
 
+---
+
 #### PersistentVolumeClaim 
 
 A PersistentVolumeClaim (PVC) is a request for storage by a user. It is similar to a Pod. Pods consume node resources and PVCs consume PV resources. Pods can request specific levels of resources (CPU and Memory). Claims can request specific size and access modes (e.g., they can be mounted ReadWriteOnce, ReadOnlyMany, ReadWriteMany, or ReadWriteOncePod, see AccessModes).
+
+---
 
 #### StorageClass 
 A StorageClass provides a way for administrators to describe the classes of storage they offer. Different classes might map to quality-of-service levels, or to backup policies, or to arbitrary policies determined by the cluster administrators. Kubernetes itself is unopinionated about what classes represent.
 
 The Kubernetes concept of a storage class is similar to “profiles” in some other storage system designs.
 
-
+---
+---
+### Just like this
 ![Screenshot](img/2.png)
 
+---
+
+#### Static provisioning
+
+refers to the manual allocation and configuration of storage volumes before they are needed by pods. Static provisioning requires administrators to pre-allocate and manage storage resources in advance so that the data remains persistent after the containers stop running.
 
 
+- as you would know this is not good way of handling storage allocating thats why we use StorageClass
+
+---
+
+### Storage access modes
+Kubernetes let your application pod request for a volume with three different types of storage access modes: 
 
 
+Read Write Once (RWO) - This mode allows a storage volume to be accessed by a single pod with read-write access. This is useful for applications requiring block storage with low latency, for example, database applications.
+Read Write Many (RWX) - Applications that need to share the storage volume require RWX access mode. RWX lets developers attach a volume with multiple container pods in parallel to be able to share and access data on that volume. It also helps pods to autoscale inline with user demand while still sharing the same data source. Traditional file-based workloads and Multi-instance applications are a good example of this.
+Read Write Once (ROX) - This mode allows many nodes to access the storage volume in read-only mode. This is useful where you want to pre-populate a volume with static data and publish it to multiple application instances.
+
+
+![Screenshot](img/3.png)
+
+---
 

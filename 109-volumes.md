@@ -26,6 +26,7 @@ A StorageClass provides a way for administrators to describe the classes of stor
 The Kubernetes concept of a storage class is similar to “profiles” in some other storage system designs.
 
 
+![Screenshot](img/2.png)
 
 
 

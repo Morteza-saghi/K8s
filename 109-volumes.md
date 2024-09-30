@@ -35,7 +35,7 @@ The Kubernetes concept of a storage class is similar to “profiles” in some o
 ---
 ---
 ### Just like this
-![Screenshot](http://storage6.nodisk.ir/s/Ht9rwpMrbz4pfCm/download/Untitled.png)
+![Screenshot](img/2.png)
 
 ---
 

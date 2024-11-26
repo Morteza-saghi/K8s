@@ -41,7 +41,7 @@ Kubernetes periodically checks if the container is ready to handle incoming traf
 If the probe fails, Kubernetes marks the container as unready and stops routing traffic to it, without restarting the container.
 Example Configuration for a Readiness Probe:
 
-```
+```yml
 readinessProbe:
   httpGet:
     path: /readiness
@@ -75,7 +75,7 @@ Readiness Probe: Used to check if a container is ready to handle traffic. If it 
 
 ### Example of Pod Configuration with Both Probes
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:

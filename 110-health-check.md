@@ -110,5 +110,7 @@ Readiness Probe: Traffic will be stopped to the container if it fails to respond
 ### Conclusion
 
 Liveness Probes: Used to determine if a container is running. If it fails, Kubernetes will restart the container.
+
 Readiness Probes: Used to determine if a container is ready to accept traffic. If it fails, Kubernetes stops sending traffic to the container but does not restart it.
+
 Proper configuration of these probes ensures that Kubernetes can efficiently manage containers and maintain application availability.

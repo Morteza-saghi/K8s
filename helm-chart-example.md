@@ -131,3 +131,29 @@ Using Helm variables eliminates this duplication. All you need to do to change t
 
 The Go template format is very powerful, and you can use it to do much more than simple variable substitutions: it supports loops, expressions, conditionals, and even calling functions. Helm charts can use these features to generate fairly complex configurations from input values, unlike the simple substitutions in our example.
 
+
+
+### Specifying Dependencies
+
+What if your chart relies on other charts? For example, if your app uses Redis, the Helm chart for your app might need to specify the Redis chart as a dependency.  
+
+You can do this using the `dependencies` section in the `Chart.yaml`:  
+
+```
+dependencies:
+  - name: redis
+    version: ~15.4.1
+    repository: https://charts.bitnami.com/bitnami
+```
+Now run the helm dependency update command, and Helm will download those charts, ready to install along with your own application.
+This ensures that the text remains properly formatted in Markdown, with correct code block syntax and structure. Let me know if you need any tweaks! 🚀
+
+
+
+
+
+
+
+
+
+
